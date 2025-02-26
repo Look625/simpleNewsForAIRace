@@ -125,7 +125,7 @@ const categories = [
 const activeCategory = ref('all')
 const isLoading = ref(true)
 const banners = ref<Banner[]>([])
-const newsItems = ref<NewsItem[]>([])
+const newsItems = ref<NewsItem[]>(newsData)
 const router = useRouter()
 
 // 搜索相关状态
@@ -173,7 +173,7 @@ const loadData = async (category: string, search: string = '') => {
   try {
     await new Promise(resolve => setTimeout(resolve, 300))
     banners.value = getBanners()
-    let data = newsData[category]
+    let data = getNewsByCategory(category)
     
     // 限制每个分类最多加载10条数据
     newsItems.value = data.slice(0, 10);

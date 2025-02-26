@@ -73,7 +73,7 @@ const generateRandomContent = () => {
 };
 
 // 生成新闻列表
-const generateNewsList = (count: number, category: string): NewsItem[] => {
+const generateNewsList = (count: number): NewsItem[] => {
     const newsList: NewsItem[] = [];
     for (let i = 0; i < count; i++) {
         newsList.push({
@@ -84,30 +84,22 @@ const generateNewsList = (count: number, category: string): NewsItem[] => {
             source: '来源未知',
             time: `${Math.floor(Math.random() * 24)}小时前`,
             comments: Math.floor(Math.random() * 100),
-            category: category
+            category: '综合'
         });
     }
     return newsList;
 };
 
 // 导出生成的新闻数据
-const newsData = {
-    all: generateNewsList(10, '综合'), // 生成10条综合新闻
-    tech: generateNewsList(10, '科技'), // 生成10条科技新闻
-    entertainment: generateNewsList(10, '娱乐'), // 生成10条娱乐新闻
-    sports: generateNewsList(10, '体育'), // 生成10条体育新闻
-    finance: generateNewsList(10, '财经'), // 生成10条财经新闻
-    lifestyle: generateNewsList(10, '生活') // 生成10条生活新闻
-};
-
+const newsData = generateNewsList(10); // 生成10条新闻
 export default newsData;
 
 // 获取指定分类的新闻数据
 export const getNewsByCategory = (category: string): NewsItem[] => {
-    return newsData[category] || newsData.all;
-};
+  return newsData.filter(item => item.category === category) || newsData;
+}
 
 // 获取轮播图数据
 export const getBanners = (): Banner[] => {
-    return banners;
-}; 
+  return banners
+} 
