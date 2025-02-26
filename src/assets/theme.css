@@ -1,0 +1,74 @@
+/* 浅色主题 */
+[data-theme='light'] {
+  --bg-primary: theme('colors.white');
+  --text-primary: theme('colors.gray.800');
+}
+
+/* 深色主题 */
+[data-theme='dark'] {
+  --bg-primary: theme('colors.gray.900');
+  --text-primary: theme('colors.gray.100');
+}
+
+/* 蓝色主题 */
+[data-theme='blue'] {
+  --bg-primary: theme('colors.blue.50');
+  --text-primary: theme('colors.blue.900');
+}
+
+/* 绿色主题 */
+[data-theme='green'] {
+  --bg-primary: theme('colors.green.50');
+  --text-primary: theme('colors.green.900');
+}
+
+/* 自定义主题 */
+[data-theme='custom'] {
+  --bg-primary: var(--custom-background);
+  --text-primary: var(--custom-text);
+}
+
+/* 应用主题颜色 */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.theme-primary {
+  background-color: var(--custom-primary);
+}
+
+.theme-secondary {
+  background-color: var(--custom-secondary);
+}
+
+/* 导航栏主题样式 */
+[data-theme='light'] .tab-bar {
+  --nav-bg: theme('colors.white');
+  --nav-text: theme('colors.gray.500');
+  --nav-active: theme('colors.blue.500');
+}
+
+[data-theme='dark'] .tab-bar {
+  --nav-bg: theme('colors.gray.900');
+  --nav-text: theme('colors.gray.400');
+  --nav-active: theme('colors.blue.400');
+}
+
+[data-theme='blue'] .tab-bar {
+  --nav-bg: theme('colors.blue.50');
+  --nav-text: theme('colors.blue.600');
+  --nav-active: theme('colors.blue.500');
+}
+
+[data-theme='green'] .tab-bar {
+  --nav-bg: theme('colors.green.50');
+  --nav-text: theme('colors.green.600');
+  --nav-active: theme('colors.green.500');
+}
+
+[data-theme='custom'] .tab-bar {
+  --nav-bg: var(--custom-background);
+  --nav-text: var(--custom-text);
+  --nav-active: var(--custom-primary);
+} 
